@@ -1,0 +1,13 @@
+<h1 id="games">New game</h1>
+<ul id="newletters">
+  <% @letters.each do |letter| %>
+  <li><%= letter %></li>
+  <% end %>
+</ul>
+
+<form id="form" action="/score">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <%= hidden_field_tag 'letters', @letters %>
+  <input type="text" name="play" placeholder="any word">
+  <input type="submit" value="Play!">
+</form>
